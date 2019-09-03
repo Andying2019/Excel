@@ -1,0 +1,9 @@
+两种数据（工资）：7k-10k，20K以上
+需取最低和最高工资，计算平均工资
+
+P                Q                           R                                                                              S
+salary	     min_salary	                  max_salary	                                                                 avgsalary
+7k-9k	    =LEFT(P2,SEARCH("k",P2,1)-1)    =IFERROR(MID(P2,SEARCH("-",P2,1)+1,LEN(P2)-SEARCH("-",P2,1)-1),Q2)
+##            (找到第一个k）                  （找到“-”）
+##  find函数区分大小写，数据中有大小写的K,所以用search函数
+##  iferror用来处理找20k以上这种数据的最大工资，返回错误时，直接取最低工资
